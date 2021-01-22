@@ -16,6 +16,8 @@ const HomeContainer = (props) => {
   const fetchData = (city) => {
     if (!city) return;
 
+    setCurrentWeatherData([]);
+
     Api.getLocationCode(city)
     .then(response => response.data[0]?.woeid)
     .then(worldId => Api.getWeatherData(worldId))

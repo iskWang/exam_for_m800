@@ -1,5 +1,13 @@
 import React from 'react';
 
-const PieChart = () => {};
+import style from './style.module.scss';
+
+const PieChart = () => {
+  return (
+    <div className={style.pieChart}>
+
+    </div>
+  )
+};
 
 export default PieChart
