@@ -2,4 +2,4 @@ import React from 'react';
 
 const BarChart = () => {};
 
-export default PieChart
+export default BarChart
