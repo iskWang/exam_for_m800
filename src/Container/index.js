@@ -1,7 +1,7 @@
 import React, {
   useContext,
   useEffect,
-  useState
+  useState,
 } from 'react';
 
 import Api from 'Api';
@@ -14,6 +14,8 @@ const HomeContainer = (props) => {
   const [currWeatherData, setCurrentWeatherData] = useState([]);
 
   const fetchData = (city) => {
+    if (!city) return;
+
     Api.getLocationCode(city)
     .then(response => response.data[0]?.woeid)
     .then(worldId => Api.getWeatherData(worldId))
