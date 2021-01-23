@@ -1,2 +1,38 @@
+.pieChartWrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .pieChart {
+  width: 200px;
+  height: 200px;
+  background: red;
+  border-radius: 50%;
+}
+
+.noticeSection {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 8px;
+}
+
+.noticeItemRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 5px;
+
+  span {
+    margin: 0 2px;
+  }
+}
+
+.noticeBlock {
+  width: 10px;
+  height: 10px;
 }

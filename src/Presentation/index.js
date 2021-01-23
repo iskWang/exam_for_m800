@@ -6,6 +6,7 @@ import {
   TextInput,
   BarChart,
   PieChart,
+  Loading,
 } from 'Component';
 
 import style from './style.module.scss';
@@ -13,21 +14,23 @@ import style from './style.module.scss';
 const HomeGrapthSection = () => {
   const { currWeatherData } = useHomeContext();
 
-  if (!Array.isArray(currWeatherData) || currWeatherData.length === 0) {
-    return (
-      <div className={style.grapthSection}>
-        <p>Please wait....</p>
-      </div>
-    );
-  }
+  const isLoading = !Array.isArray(currWeatherData) || currWeatherData.length === 0;
 
   return (
     <div className={style.grapthSection}>
       <div className={style.graphItemContainer}>
-        <BarChart data={currWeatherData} />
+        {
+          isLoading
+            ? <Loading />
+            : <BarChart data={currWeatherData} />
+        }
       </div>
       <div className={style.graphItemContainer}>
-        <PieChart />
+        {
+          isLoading
+          ? <Loading />
+          : <PieChart data={currWeatherData} />
+        }
       </div>
     </div>
   )

@@ -22,6 +22,7 @@ const HomeContainer = (props) => {
     .then(response => response.data[0]?.woeid)
     .then(worldId => Api.getWeatherData(worldId))
     .then(response => response.data?.consolidated_weather)
+    .then(data => data.splice(0, 5))
     .then(weatherData => setCurrentWeatherData(weatherData))
   }
 
