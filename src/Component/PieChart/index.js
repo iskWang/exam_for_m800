@@ -33,10 +33,6 @@ const PieChart = (props) => {
     return acc;
   }, '')
 
-  console.log({
-    test: props.data,
-  })
-
   const pieStyle = {
     background: `conic-gradient(${bgStyle})`
   }
