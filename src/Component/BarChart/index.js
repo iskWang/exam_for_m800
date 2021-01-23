@@ -6,7 +6,25 @@ import style from './style.module.scss';
 const BAR_WIDTH = 150;
 
 const BarChart = (props) => {
-  const maxDeg = Math.max(...props.data.map(el => el.max_temp));
+  const maxDeg = Math.max(...props.data.map(el => el.max_temp)) + Math.abs(
+    Math.min(...props.data.map(el => el.min_temp)
+  ));
+
+  const handleMinStyle = (item) => {
+    let width = 0;
+
+    if (item.min_temp <= 0) {
+      width = 0;
+    } else {
+      width = (item.min_temp / maxDeg) * BAR_WIDTH;
+    }
+
+    width += 'px';
+
+    return {
+      width,
+    }
+  }
 
   return (
     <div className={style.barChart}>
@@ -22,15 +40,13 @@ const BarChart = (props) => {
                     width: (item.max_temp / maxDeg) * BAR_WIDTH + 'px',
                   }}
                 >
-                  <span>{item.max_temp}</span>
+                  <span>{Number(item.max_temp).toFixed(0)}</span>
                 </div>
                 <div
                   className={cx(style.barGraph, style.min)}
-                  style={{
-                    width: (item.min_temp / maxDeg) * BAR_WIDTH + 'px',
-                  }}
+                  style={handleMinStyle(item)}
                 >
-                  <span>{item.min_temp}</span>
+                  <span>{Number(item.min_temp).toFixed(0)}</span>
                 </div>
               </div>
             </div>
