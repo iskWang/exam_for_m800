@@ -46,7 +46,7 @@ const BarChart = (props) => {
                   className={cx(style.barGraph, style.min)}
                   style={handleMinStyle(item)}
                 >
-                  <span>{Number(item.min_temp).toFixed(0)}</span>
+                  <span>{ item.min_temp <= 0 ? 0 : Number(item.min_temp).toFixed(0)}</span>
                 </div>
               </div>
             </div>

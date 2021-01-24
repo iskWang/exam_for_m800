@@ -11,13 +11,13 @@ import {
 
 import style from './style.module.scss';
 
-const HomeGrapthSection = () => {
+const HomeGraphSection = () => {
   const { currWeatherData } = useHomeContext();
 
   const isLoading = !Array.isArray(currWeatherData) || currWeatherData.length === 0;
 
   return (
-    <div className={style.grapthSection}>
+    <div className={style.graphSection}>
       <div className={style.graphItemContainer}>
         {
           isLoading
@@ -44,7 +44,7 @@ const HomePresentation = () => {
 
   return (
     <div className={style.wrap}>
-      <HomeGrapthSection />
+      <HomeGraphSection />
       <TextInput
         value={currCity}
         onSubmit={value => setCurrCity(value)}
